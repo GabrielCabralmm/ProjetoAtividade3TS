@@ -61,15 +61,15 @@ function exibirConsulta(consulta: Consulta): string {
     style: "currency",
     currency: "BRL",
   });
-  return `
-Consulta #${consulta.id}
-Médico: ${consulta.medico.nome}
-Paciente: ${consulta.paciente.nome}
-Especialidade: ${consulta.medico.especialidade.nome}
-Data: ${consulta.data.toLocaleDateString("pt-BR")}
-Valor: ${valorFormatado}
-Status: ${consulta.status}
-`;
+    return `
+    Consulta #${consulta.id}
+    Médico: ${consulta.medico.nome}
+    Paciente: ${consulta.paciente.nome}
+    Especialidade: ${consulta.medico.especialidade.nome}
+    Data: ${consulta.data.toLocaleDateString("pt-BR")}
+    Valor: ${valorFormatado}
+    Status: ${consulta.status}
+    `;
 }
 
 const consulta1 = criarConsulta(
@@ -79,6 +79,25 @@ const consulta1 = criarConsulta(
   new Date(),
   350
 );
+
+const consulta2 = criarConsulta(
+  2,
+  medico1,
+  paciente1,
+  new Date(),
+  450,
+);
+
+cancelarConsulta(consulta2)
+
+const consulta3 = criarConsulta(
+  3,
+  medico1,
+  paciente1,
+  new Date(),
+  600,
+);
+
 const consultaConfirmada = confirmarConsulta(consulta1);
 console.log("=== CONSULTA CONFIRMADA ===");
 console.log(exibirConsulta(consultaConfirmada));
